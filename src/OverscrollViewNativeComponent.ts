@@ -1,16 +1,12 @@
-import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
-import { Platform, View, type ViewProps } from 'react-native';
-
-interface NativeProps extends ViewProps {
-  bounce: boolean;
-}
+import { Platform, View } from 'react-native';
+import type { NativeProps } from './NativeOverscrollView';
 
 type OverscrollViewType = typeof View | React.ComponentType<NativeProps>;
 
 let OverscrollView: OverscrollViewType = View;
 
 if (Platform.OS === 'android') {
-  OverscrollView = codegenNativeComponent<NativeProps>('OverscrollView');
+  OverscrollView = require('./OverscrollViewNativeComponent').default;
 }
 
 export default OverscrollView;

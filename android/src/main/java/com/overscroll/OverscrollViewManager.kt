@@ -18,11 +18,6 @@ class OverscrollViewManager :
     return OverscrollView(context)
   }
 
-  @ReactProp(name = "bounce")
-  override fun setColor(view: OverscrollView?, bounce: Boolean?) {
-    view?.setBounce(bounce)
-  }
-
   override fun getExportedCustomDirectEventTypeConstants(): MutableMap<String, Any>? {
     var export = super.getExportedCustomDirectEventTypeConstants();
     if (export == null) {
